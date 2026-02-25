@@ -1,0 +1,21 @@
+{
+  "name": "03-file-system",
+  "version": "1.0.0",
+  "description": "working with files",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "run_files": "node files_actions/files.js",
+    "run_employees": "node files_actions/employees.js"
+  },
+  "keywords": [],
+  "author": "Edward",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
+  }
+}
