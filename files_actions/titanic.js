@@ -46,7 +46,7 @@ fs.readFile('../train.csv', 'utf8', (err, data) => {
         console.log(`Total quantity of survived = ${passengers.filter(it => +it.Survived).length}`);
         console.log(`Total quantity of non survived = ${passengers.filter(it => !+it.Survived).length}`);
 
-        const survAndNonServMens = passengers.filter(it => it.Sex === 'male').reduce((acc, cur) => {
+        const survAndNonServMens = passengers.filter(it => it.Sex === 'male' && (it.Age >= 18 || !it.Age)).reduce((acc, cur) => {
             if (+cur.Survived) acc.surv++
             if (!+cur.Survived) acc.nonSurv++
             return acc
@@ -58,7 +58,7 @@ fs.readFile('../train.csv', 'utf8', (err, data) => {
         console.log('Survived Mens = ', survAndNonServMens.surv);
         console.log('Non survived Mens = ', survAndNonServMens.nonSurv);
 
-        const survAndNonServWomen = passengers.filter(it => it.Sex === 'female').reduce((acc, cur) => {
+        const survAndNonServWomen = passengers.filter(it => it.Sex === 'female' && (it.Age >= 18 || !it.Age)).reduce((acc, cur) => {
             if (+cur.Survived) acc.surv++
             if (!+cur.Survived) acc.nonSurv++
             return acc
