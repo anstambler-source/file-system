@@ -70,7 +70,7 @@ fs.readFile('../train.csv', 'utf8', (err, data) => {
         console.log('Survived Women = ', survAndNonServWomen.surv);
         console.log('Non survived Women = ', survAndNonServWomen.nonSurv);
 
-        const survAndNonServChildren = passengers.filter(it => !it.Age || it.Age < 18).reduce((acc, cur) => {
+        const survAndNonServChildren = passengers.filter(it => it.Age < 18 && it.Age).reduce((acc, cur) => {
             if (+cur.Survived) acc.surv++
             if (!+cur.Survived) acc.nonSurv++
             return acc
