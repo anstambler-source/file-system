@@ -11,8 +11,8 @@ fs.readFile('../train.csv', 'utf8', (err, data) => {
         list.pop()
 
         function Passenger (headers, data) {
-            data.forEach((item, i) => {
-                this[headers[i]] = data[i].trim().replaceAll('"', '');
+            headers.forEach((header, i) => {
+                this[header] = data[i].trim().replaceAll('"', '');
             })
         }
 
