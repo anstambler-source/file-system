@@ -10,10 +10,12 @@ fs.readFile('../train.csv', 'utf8', (err, data) => {
         list.shift()
         list.pop()
 
-        function Passenger (headers, data) {
-            headers.forEach((header, i) => {
-                this[header] = data[i].trim().replaceAll('"', '');
-            })
+        class Passenger {
+            constructor (headers, data) {
+                    headers.forEach((header, i) => {
+                        this[header] = data[i].trim().replaceAll('"', '');
+                    })
+                }
         }
 
         const passengers = list.map((item) => {
